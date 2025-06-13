@@ -23,7 +23,7 @@ class PrinterQueue {
 		
 		void Enqueue(string task) {
 			if(isFull()) {
-				cout << "Queue if full. Cannot add new print task.\n";
+				cout << "Queue is full. Cannot add more tasks to print." << endl;
 				return;
 			}
 			
@@ -36,14 +36,14 @@ class PrinterQueue {
 			tasks[rear] = task;
 			cout << "Added print task: " << task << endl;
 		}
-		
+			
 		void Dequeue() {
 			if(isEmpty()) {
-				cout << "No tasks to print.\n";
+				cout << "No tasks to print." << endl;
 				return;
 			}
 			
-			cout << "Printing: " << tasks[front] << endl;
+			cout <<"Printing" << tasks[front] << endl;
 			if(front == rear) {
 				front = rear = -1;
 			} else {
@@ -71,18 +71,17 @@ class PrinterQueue {
 		
 		void displayQueue() {
 			if(isEmpty()) {
-				cout << "Queue is empty.\n";
-				return;
+				cout << "Queue is empty." << endl;
 			}
 			
-			cout << "Current print queue: ";
+			cout << "Current print queue.";
 			int i = front;
 			while(true) {
-				cout << tasks[i] << " ";
+				cout << tasks[i];
 				if(i == rear) {
 					break;
 				}
-				i = ( i + 1) % SIZE;
+				i = (i + 1) % SIZE;
 			}
 			cout << endl;
 		}
@@ -101,7 +100,7 @@ int main() {
 	pq.Enqueue("Doc6");
 	pq.displayQueue();
 	
-	cout << "Is Doc3 in queue? " << (pq.isInList("Doc3") ? "Yes" : "No") << endl;
+	cout << "Is Doc3 in queue?" << (pq.isInList("Doc3") ? "Yes" : "No") << endl;
 	
 	return 0;
 }
